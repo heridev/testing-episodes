@@ -1,3 +1,7 @@
 .jumbotron {
   background: yellow;
 }
+
+.body_container{
+  margin-top: 60px;
+}
