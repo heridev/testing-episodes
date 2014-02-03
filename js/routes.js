@@ -7,7 +7,6 @@ var Router = Backbone.Router.extend({
   home:  function(){
     kindles = new KindlesCollection();
     kindles.fetch({
-      dataType: 'jsonp',
       data: { page: 1 },
       success: function(data, response, jqXHR){
         var pageInfo = {

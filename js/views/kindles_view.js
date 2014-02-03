@@ -24,7 +24,6 @@ var KindlesView = Backbone.View.extend({
 
   template: function(){
     var _this = this;
-    console.log(this);
     this.$el.loadFromTemplate({
       template: 'kindles',
       data: { current_page: _this.pageInfo['current_page'] },
@@ -49,7 +48,6 @@ var KindlesView = Backbone.View.extend({
     kindles = new KindlesCollection();
     kindles.fetch({
       data: { page:  next_page },
-      dataType: 'jsonp',
       success: function(data, response, jqXHR){
         _this.pageInfo['current_page'] = response.current_page,
         _this.pageInfo['total_pages'] = response.total_pages,
