@@ -2,9 +2,11 @@ var Router = Backbone.Router.extend({
 
   routes: {
     ''            :   'home',
+    'add-kindle'  :   'addKindle'
   },
 
   home:  function(){
+    var _this = this;
     kindles = new KindlesCollection();
     kindles.fetch({
       data: { page: 1 },
@@ -15,13 +17,21 @@ var Router = Backbone.Router.extend({
           perPage: response.perPage,
           total_page: response.total_pages
         }
-        var kindlesView = new KindlesView({
+        var currentView = new KindlesView({
           pageInfo: pageInfo,
           collection: response.models,
-          el: $('.body_container')
         });
-        kindlesView.render();
+        _this.renderPage(currentView);
       }
     });
   },
+
+  addKindle: function(){
+    this.renderPage(new addKindleView);
+  },
+
+  renderPage: function(view){
+    console.log
+    $('.body_container').empty().html(view.render().el);
+  }
 });
