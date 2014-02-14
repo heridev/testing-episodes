@@ -26,7 +26,7 @@ var addKindleView = Backbone.View.extend({
     kindleModel.save(data, {
       success: function(data) {
         var router = new Router;
-        router.navigate('', { trigger: true});
+        router.navigate('kindles', { trigger: true});
       }
     });
 
